@@ -6,7 +6,7 @@ This repo contains NuGet packages for common shared code between applications.
 
 **GravityLib.Common*
 
-[![GravityLib.Common package](https://github.com/vasilp/GravityLib/Badge)](https://github.com/vasilp/GravityLib)
+[![GravityLib.Common package](https://img.shields.io/static/v1?label=GravityLib.Common&message=latest&color=blue)](https://github.com/vasilp/GravityLib/pkgs/nuget/GravityLib.Common)
 
 🌱 <span style="color:#008da6">Target Framework: **.Net Standard 2.0** / Coverage: **.Net Framework 4.7+, .Net and .Net Core 2.0+**</span>
 
@@ -22,7 +22,7 @@ For the services / console / desktop apps, this could be obtained from the curre
 
 **GravityLib.EntityFramework**
 
-[![GravityLib.EntityFramework package](https://github.com/vasilp/GravityLib/Badge)](https://github.com/vasilp/GravityLib)
+[![GravityLib.EntityFramework package](https://img.shields.io/static/v1?label=GravityLib.EntityFramework&message=latest&color=blue)](https://github.com/vasilp/GravityLib/pkgs/nuget/GravityLib.EntityFramework)
 
 🌱 <span style="color:#008da6">Target Framework: **.Net 8.0+**</span>
 
@@ -34,7 +34,7 @@ Contains base DbContext class and helper classes to utilize the best of EntityFr
 
 **GravityLib.Http**
 
-[![GravityLib.Http package](https://github.com/vasilp/GravityLib/Badge)](https://github.com/vasilp/GravityLib)
+[![GravityLib.Http package](https://img.shields.io/static/v1?label=GravityLib.Http&message=latest&color=blue)](https://github.com/vasilp/GravityLib/pkgs/nuget/GravityLib.Http)
 
 🌱 <span style="color:#008da6">Target Framework: **.Net Standard 2.0** / Coverage: **.Net Framework 4.7+, .Net and .Net Core 2.0+**</span>
 

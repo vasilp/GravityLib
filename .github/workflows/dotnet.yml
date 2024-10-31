@@ -29,6 +29,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
@@ -57,7 +60,7 @@ jobs:
     - name: Create Git Tag
       if: success()
       run: |
-        git config user.name "${{ github.actor }}"
-        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git config --global user.name "${{ github.actor }}"
+        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
         git tag -a "v${{ env.VERSION }}" -m "Version ${{ env.VERSION }}"
         git push origin "v${{ env.VERSION }}"

@@ -1,8 +1,9 @@
-name: .NET
+name: GravityLib Build and Publish
 
 on:
   push:
     branches: ["main"]
+    tags-ignore: ['v*']
   pull_request:
     branches: ["main"]
 
@@ -51,3 +52,11 @@ jobs:
           dotnet pack "$project" --configuration Release --no-restore --no-build -p:PackageVersion=${{ env.VERSION }} -o ./packages
         done
         dotnet nuget push ./packages/*.nupkg --source ${{ env.NUGET_SOURCE }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
+
+    - name: Create Git Tag
+      if: success()
+      run: |
+        git config user.name "${{ github.actor }}"
+        git config user.email "${{ github.actor }}@users.noreply.github.com"
+        git tag -a "v${{ env.VERSION }}" -m "Version ${{ env.VERSION }}"
+        git push origin "v${{ env.VERSION }}"

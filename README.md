@@ -1,6 +1,6 @@
 # GravityLib
 
-[![Build Status](https://github.com/vasilp/GravityLib)](https://github.com/vasilp/GravityLib)
+[![Build Status](https://github.com/vasilp/GravityLib/actions/workflows/dotnet.yml/badge.svg)](https://github.com/vasilp/GravityLib/actions/workflows/dotnet.yml)
 
 This repo contains NuGet packages for common shared code between applications.
 

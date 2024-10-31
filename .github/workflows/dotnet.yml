@@ -9,7 +9,7 @@ on:
 
 env:
   SOLUTION_NAME: GravityLib.sln
-  PROJECTS: |
+  PROJECTS: >
     GravityLib.Common/GravityLib.Common.csproj
     GravityLib.EntityFramework/GravityLib.EntityFramework.csproj
     GravityLib.Http/GravityLib.Http.csproj
@@ -20,7 +20,7 @@ env:
 
 jobs:
   build-and-pack:
-    runs-on: gha-runner-scale-set-linux
+    runs-on: ubuntu-latest
 
     permissions:
       packages: write
@@ -42,13 +42,14 @@ jobs:
       run: dotnet build ${{ env.SOLUTION_NAME }} --configuration Release -p:Version=${{ env.VERSION }} --no-restore
 
     - name: Run tests
-      run: dotnet test ${{ env.SOLUTION_NAME }} --no-restore --no-build
+      run: dotnet test ${{ env.SOLUTION_NAME }} --configuration Release --no-restore --no-build
 
     - name: Pack and Publish
       run: |
         rm -rf ./packages
         mkdir ./packages
-        for project in ${{ env.PROJECTS }}; do
+        for project in ${{ env.PROJECTS }}
+        do
           dotnet pack "$project" --configuration Release --no-restore --no-build -p:PackageVersion=${{ env.VERSION }} -o ./packages
         done
         dotnet nuget push ./packages/*.nupkg --source ${{ env.NUGET_SOURCE }} --api-key ${{ env.NUGET_API_KEY }} --skip-duplicate
